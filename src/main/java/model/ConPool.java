@@ -17,7 +17,6 @@ public class ConPool {
      */
     private static DataSource dataSource;
 
-
     /**
      * Restituisce una connessione dal pool. Se il pool non esiste, viene creato.
      * @return Una connessione al database gamepark.
