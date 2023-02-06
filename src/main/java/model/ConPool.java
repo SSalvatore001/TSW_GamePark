@@ -25,7 +25,7 @@ public class ConPool {
     public static Connection getConnection() throws SQLException{
         if (dataSource==null){
             PoolProperties p= new PoolProperties();
-            p.setUrl("jdbc:mysql://localhost:3306/gamepark?serverTimezone=" + TimeZone.getDefault().getID());
+            p.setUrl("jdbc:mysql://localhost:3306/ecommerce_gamepark?serverTimezone=" + TimeZone.getDefault().getID());
             p.setDriverClassName("com.mysql.jdbc.Driver");
             p.setUsername("root");
             p.setPassword("root");
