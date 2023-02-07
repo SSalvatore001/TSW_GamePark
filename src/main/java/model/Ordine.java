@@ -1,53 +1,51 @@
 package model;
-
-import java.sql.Date;
-
 public class Ordine {
-    private int id;
-    private Date data;
-    private double importoTotale;
+    private int idOrdine;
+    private String data;
+    private String indirizzo;
     private int idUtente;
+    private double totale;
 
+    public Ordine(int idOrdine, String data, String indirizzo, int idUtente, double totale) {
+        this.idOrdine = idOrdine;
+        this.data = data;
+        this.indirizzo = indirizzo;
+        this.idUtente = idUtente;
+        this.totale = totale;
+    }
     public Ordine() {
 
     }
-
-    public Ordine(int id, Date data, double importoTotale, int idUtente) {
-        this.id = id;
-        this.data = data;
-        this.importoTotale = importoTotale;
-        this.idUtente = idUtente;
+    public int getIdOrdine() {
+        return idOrdine;
     }
 
-    public int getId() {
-        return id;
+    public void setIdOrdine(int idOrdine) {
+        this.idOrdine = idOrdine;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Date getData() {
+    public String getData() {
         return data;
     }
-
-    public void setData(Date data) {
+    public void setString(String data) {
         this.data = data;
     }
-
-    public double getImportoTotale() {
-        return importoTotale;
+    public String getIndirizzo() {
+        return indirizzo;
     }
-
-    public void setImportoTotale(double importoTotale) {
-        this.importoTotale = importoTotale;
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
-
     public int getIdUtente() {
         return idUtente;
     }
-
     public void setIdUtente(int idUtente) {
         this.idUtente = idUtente;
     }
+    public double getTotale() {
+        return totale;
+    }
+    public void setTotale(double totale) {
+        this.totale = totale;
+    }
+
 }

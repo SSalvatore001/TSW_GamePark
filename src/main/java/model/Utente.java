@@ -7,6 +7,24 @@ public class Utente {
     private String email;
     private String password;
 
+    public Utente(int id, String nome, String cognome, String email, String password) {
+        this.id = id;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.password = password;
+    }
+    public Utente(String nome, String cognome, String email, String password) {
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Utente() {
+
+    }
+
     public int getId() {
         return id;
     }

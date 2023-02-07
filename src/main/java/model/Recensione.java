@@ -1,21 +1,64 @@
 package model;
 
-import java.sql.Date;
+/**
+ * La classe modella il concetto di Recensione
+ * @author Salvatore Sautariello
+ */
 
 public class Recensione {
-    private int id;
+    private int idRecensione;
+    private int valutazione;
     private String testo;
-    private int voto;
-    private Date data;
-    private int idUtente;
-    private int idProdotto;
+    private int id_utente;
+    private int id_prodotto;
 
-    public int getId() {
-        return id;
+    public Recensione(int idRecensione,int valutazione,String testo,int id_utente,int id_prodotto){
+        this.idRecensione=idRecensione;
+        this.valutazione=valutazione;
+        this.testo = testo;
+        this.id_utente = id_utente;
+        this.id_prodotto = id_prodotto;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Recensione(int valutazione,String testo,int id_utente,int id_prodotto){
+        this.valutazione=valutazione;
+        this.testo=testo;
+        this.id_utente = id_utente;
+        this.id_prodotto = id_prodotto;
+    }
+    public int getIdUtente() {
+        return id_utente;
+    }
+
+    public void setIdUtente(int id_utente) {
+        this.id_utente = id_utente;
+    }
+
+    public int getIdProdotto() {
+        return id_prodotto;
+    }
+
+    public void setIdProdotto(int id_prodotto) {
+        this.id_prodotto = id_prodotto;
+    }
+
+    public Recensione() {
+    }
+
+    public int getIdRecensione() {
+        return idRecensione;
+    }
+
+    public void setIdRecensione(int idRecensione) {
+        this.idRecensione = idRecensione;
+    }
+
+    public int getValutazione() {
+        return valutazione;
+    }
+
+    public void setValutazione(int valutazione) {
+        this.valutazione = valutazione;
     }
 
     public String getTesto() {
@@ -25,37 +68,4 @@ public class Recensione {
     public void setTesto(String testo) {
         this.testo = testo;
     }
-
-    public int getVoto() {
-        return voto;
-    }
-
-    public void setVoto(int voto) {
-        this.voto = voto;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public int getIdUtente() {
-        return idUtente;
-    }
-
-    public void setIdUtente(int idUtente) {
-        this.idUtente = idUtente;
-    }
-
-    public int getIdProdotto() {
-        return idProdotto;
-    }
-
-    public void setIdProdotto(int idProdotto) {
-        this.idProdotto = idProdotto;
-    }
-
 }

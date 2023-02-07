@@ -1,63 +1,45 @@
 package model;
-import java.util.ArrayList;
 
 public class Carrello {
     private int id;
-    private int idUtente;
-    private ArrayList<Prodotto> listaProdotti;
-    private double prezzoTotale;
+    private int id_utente;
+    private double totale;
 
-    public void aggiungiProdotto(Prodotto prodotto) {
-        this.listaProdotti.add(prodotto);
+    public Carrello(int id, int id_utente, double totale) {
+        this.id = id;
+        this.id_utente = id_utente;
+        this.totale = totale;
     }
 
-    public void rimuoviProdotto(Prodotto prodotto) {
-        this.listaProdotti.remove(prodotto);
+    //Costruttore per registrazione
+    public Carrello(int id_utente, double totale) {
+        this.id_utente = id_utente;
+        this.totale = totale;
     }
+    public Carrello() {
 
-    public void modificaQuantità(Prodotto prodotto, int quantità) {
-        int index = this.listaProdotti.indexOf(prodotto);
-        this.listaProdotti.get(index).setQuantità(quantità);
     }
-
-    public double totale() {
-        double totale = 0;
-        for (Prodotto prodotto : this.listaProdotti) {
-            totale += prodotto.getPrezzo() * prodotto.getQuantità();
-        }
-        this.prezzoTotale = totale;
-        return this.prezzoTotale;
-    }
-
-    public int getId() {
+    public int getIdCarrello() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCarrello(int id) {
+        this.id= id;
     }
 
     public int getIdUtente() {
-        return idUtente;
+        return id_utente;
     }
 
-    public void setIdUtente(int idUtente) {
-        this.idUtente = idUtente;
+    public void setIdUtente(int id_utente) {
+        this.id_utente = id_utente;
     }
 
-    public ArrayList<Prodotto> getListaProdotti() {
-        return listaProdotti;
+    public double getTotale() {
+        return totale;
+    }
+    public void setTotale(double totale) {
+        this.totale = totale;
     }
 
-    public void setListaProdotti(ArrayList<Prodotto> listaProdotti) {
-        this.listaProdotti = listaProdotti;
-    }
-
-    public double getPrezzoTotale() {
-        return prezzoTotale;
-    }
-
-    public void setPrezzoTotale(double prezzoTotale) {
-        this.prezzoTotale = prezzoTotale;
-    }
 }
