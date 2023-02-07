@@ -1,0 +1,153 @@
+package model.dao;
+
+import java.sql.*;
+import java.util.ArrayList;
+import model.*;
+/**
+ * La classe permette le operazioni riguardanti gli oggetti Ordine
+ * in relazione al DBMS MySQL
+ * @author Salvatore Sautariello
+ */
+public class OrdineDAO {
+    private static final String INSERT_ORDINE_QUERY = "INSERT INTO Ordine(dataset, indirizzo, idUtente, totale) VALUES (?, ?, ?, ?)";
+    private static final String SELECT_ORDINE_BY_ID_QUERY = "SELECT * FROM Ordine WHERE id = ?";
+    private static final String SELECT_ALL_ORDINI = " SELECT * FROM Ordine";
+    private static final String SELECT_ORDINI_BY_ID_UTENTE_QUERY = "SELECT * FROM Ordine WHERE idUtente = ?";
+    private static final String UPDATE_ORDINE_QUERY = "UPDATE Ordine SET dataset = ?, indirizzo = ?, idUtente = ?, totale = ? WHERE id = ?";
+    private static final String DELETE_ORDINE_QUERY = "DELETE FROM Ordine WHERE id = ?";
+    private static final String UPDATE_ORDINECOMPRENDEPRODOTTO_QUERY= "INSERT INTO ORDINECOMPRENDEPRODOTTO (id_ordine, id_prodotto) VALUES (?,?)";
+    /**
+     * Il metodo permette di memorizzare un oggetto Ordine
+     * nel database
+     * @param ordine l'ordine da memorizzare nel database
+     * */
+    public void doSave(Ordine ordine) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement statement = con.prepareStatement(INSERT_ORDINE_QUERY);
+            statement.setString(1, ordine.getData());
+            statement.setString(2, ordine.getIndirizzo());
+            statement.setInt(3, ordine.getIdUtente());
+            statement.setDouble(4, ordine.getTotale());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Il metodo permette di ottenere un oggetto Ordine con l'id
+     * specificato
+     * @param id_ordine id dell' oggetto Ordine che si vuole
+     *                      reperire dal database
+     * @return un oggetto Ordine il cui id coincide con quello specificato
+     *                      come parametro
+     */
+    public Ordine doRetrieveById(int id_ordine) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement statement = con.prepareStatement(SELECT_ORDINE_BY_ID_QUERY);
+            statement.setInt(1, id_ordine);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                int idUtente = resultSet.getInt("idUtente");
+                String data = resultSet.getString("dataset");
+                String indirizzo = resultSet.getString("indirizzo");
+                double totale = resultSet.getDouble("totale");
+
+                return new Ordine(id_ordine, data, indirizzo, idUtente, totale);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Il metodo permette di ottenere una lista di oggetti Prodotto con l'idUtente
+     * specificato
+     * @param idUtente idUtente della lista di oggetto Prodotto che si vuole
+     *                      reperire dal database
+     * @return Una lista di oggetti Prodotto che COMPRENDE le istanze di
+     *                      oggetti Prodotto con l'idUtente specificato nel database
+     */
+    public ArrayList<Ordine> getOrdiniByIdUtente(int idUtente){
+        ArrayList<Ordine> ordini = new ArrayList<>();
+        try(Connection con = ConPool.getConnection()){
+
+            //Preparo la query
+            PreparedStatement ps = con.prepareStatement(SELECT_ORDINI_BY_ID_UTENTE_QUERY);
+            ps.setInt(1, idUtente);
+            //Eseguo la query sul DB
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Ordine ordine = new Ordine (rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getDouble(5));
+                ordini.add(ordine);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ordini;
+    }
+
+    public void doUpdate(int id_ordine, Ordine ordine) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement statement = con.prepareStatement(UPDATE_ORDINE_QUERY);
+            statement.setString(1, ordine.getData());
+            statement.setString(2, ordine.getIndirizzo());
+            statement.setInt(3, ordine.getIdUtente());
+            statement.setInt(4, id_ordine);
+            statement.setDouble(5, ordine.getTotale());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addOfferteToOrder(ArrayList<Prodotto> prodotti, int id_ordine) {
+
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement stmt = con.prepareStatement(UPDATE_ORDINECOMPRENDEPRODOTTO_QUERY);
+            for (Prodotto prodotto : prodotti) {
+                stmt.setInt(1, id_ordine);
+                stmt.setInt(2, prodotto.getId());
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList < Ordine > doRetrieveAll() {
+        ArrayList < Ordine > ordini = new ArrayList < > ();
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement statement = con.prepareStatement(SELECT_ALL_ORDINI);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int id_ordine = resultSet.getInt("id_ordine");
+                String data = resultSet.getString("dataset");
+                String indirizzo = resultSet.getString("indirizzo");
+                int idUtente = resultSet.getInt("idUtente");
+                double totale = resultSet.getDouble("totale");
+
+                Ordine ordine = new Ordine(id_ordine, data, indirizzo, idUtente,totale);
+                ordini.add(ordine);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ordini;
+
+    }
+
+    public void doDelete(int id_ordine) {
+        try (Connection con = ConPool.getConnection()) {
+            PreparedStatement statement = con.prepareStatement(DELETE_ORDINE_QUERY);
+            statement.setInt(1, id_ordine);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
