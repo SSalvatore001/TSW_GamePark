@@ -1,0 +1,615 @@
+/*impostazione dei div e dell'header*/
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: #547980;
+    overflow: hidden;
+}
+
+/* navigation bar */
+
+#top-navbar{
+    margin: 20px;
+    padding: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: rgba(0,0,0,0);
+}
+
+#top-navbar a:link, a:visited, a:hover, a:active{
+    color: #FFD100;
+    text-decoration: none;
+}
+
+#top-navbar li{
+    padding: 14px 14px;
+    display: block;
+    font-size: medium;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+#bottom-navbar{
+    margin: 20px;
+    padding: 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    list-style-type: none;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    background-color: #FFD100;
+}
+
+#bottom-navbar a:link, a:visited, a:hover, a:active{
+    color: #FFD100;
+    text-decoration: none;
+}
+
+#bottom-navbar li{
+    padding: 14px 14px;
+    display: block;
+    float: left;
+    font-size: medium;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+#search-text, #search-text-selling{
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+}
+
+#search-form{
+    margin: 0;
+}
+
+#search-button{
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+#top-navbar li a i {
+    color: #FFD100;
+}
+
+#top-navbar li a i:hover{
+    color: #75630f;
+}
+
+#top-navbar li a i:active{
+    color: #75630f;
+}
+
+.fa-search {
+    color: #1a1a1a;
+}
+
+.fa-search:hover{
+    color: #75630f;
+}
+
+.fa-search:active{
+    color: #75630f;
+}
+
+#logo {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: fit-content;
+}
+
+/* footer */
+
+#footer-navbar{
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: rgba(0,0,0,0);
+    justify-content: center;
+}
+
+#footer-navbar a:link, a:visited, a:hover, a:active{
+    color: #FFD100;
+    text-decoration: none;
+}
+
+#footer-navbar li{
+    padding: 14px 14px;
+    display: block;
+    float: left;
+    font-size: medium;
+    text-align: center;
+    text-decoration: none;
+    color: #FFD100;
+}
+
+#footer-navbar li a i:hover{
+    color: #75630f;
+}
+
+#footer-navbar li a i:active{
+    color: #75630f;
+}
+
+/* ricerca (in generale liste) */
+
+#grid-container ul {
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #FFD100;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    border-radius: 10px;
+}
+
+#grid-container ul li {
+    margin: 20px;
+    padding: 14px 14px;
+    font-size: medium;
+    text-align: center;
+    color: black;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#grid-container ul li img {
+    margin: 5px;
+    height: 218px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border-top: none;
+    border-right: 4px solid darkgrey;
+    border-left: none;
+    border-bottom: 4px solid darkgrey;
+}
+
+/* forum */
+
+#create-topic, #add-message {
+    margin: 20px;
+    background-color: #FFD100;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#topic-form, #message-form {
+    margin: 10px;
+    padding: 10px;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#topic-text, #message-text-object, #message-text-body, #modify-message-text{
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+}
+
+input[type=submit], #search-form-selling #search-button{
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    border-top: none;
+    border-right: 3px solid #7a7878;
+    border-left: none;
+    border-bottom: 3px solid #7a7878;
+    cursor: pointer;
+}
+
+input[type=submit]:hover{
+    background-color: black;
+}
+
+input[type=submit]:active{
+    background-color: black;
+}
+
+#grid-container-topic ul {
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #FFD100;
+    justify-content: center;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    border-radius: 10px;
+}
+
+#grid-container-topic ul li {
+    margin: 20px;
+    padding: 14px 14px;
+    font-size: medium;
+    text-align: left;
+    color: black;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+/* content */
+
+#content-text {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFD100;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+}
+
+p{
+    margin: 10px;
+    padding: 10px;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+/* homepage */
+
+#card-statistics, #home-offers{
+    margin: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #FFD100;
+    justify-content: center;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    border-radius: 10px;
+}
+
+#card-img, #card-info{
+    margin: 20px;
+    padding: 14px 14px;
+    width: fit-content;
+    font-size: medium;
+    text-align: left;
+    color: black;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#card-img img {
+    margin: 5px;
+    height: auto;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border-top: none;
+    border-right: 4px solid darkgrey;
+    border-left: none;
+    border-bottom: 4px solid darkgrey;
+}
+
+#card-info p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#card-info #offer-form {
+    display: flex;
+    justify-content: center;
+}
+
+#home-offers-table, #tabellaOfferte {
+    margin: 20px;
+    padding: 14px;
+    width: 100%;
+    font-size: medium;
+    text-align: center;
+    color: black;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#home-offers-table td, #tabellaOfferte td {
+    padding: 14px 14px;
+    border-bottom: 3px solid #1a1a1a;
+    border-radius: 5px;
+}
+
+#home-offers-table th, #tabellaOfferte th{
+    text-decoration: none;
+    color: white;
+    background-color: #1A1A1A;
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+/* pagina utente */
+
+.titolo {
+    text-align: center;
+}
+
+.utentePanel {
+    text-align: center;
+    padding: 60px;
+    margin: auto;
+    max-width: max-content;
+    padding: 10px;
+    background:#FFD100;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    border-radius: 10px;
+}
+
+.utentePanel form{
+    margin: 0;
+}
+
+.submit, .submitExit, .btn{
+    margin: 10px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    border-top: none;
+    border-right: 3px solid #7a7878;
+    border-left: none;
+    border-bottom: 3px solid #7a7878;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: black;
+}
+
+.submit:hover{
+    background-color: black;
+}
+
+.submitExit:hover{
+    background-color: black;
+}
+
+.submitExit i {
+    padding: 5px;
+}
+
+/* pagina offerte e ordini */
+
+#myoffers, #myorders {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    padding: 0;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #FFD100;
+    border-top: none;
+    border-right: 4px solid #75630f;
+    border-left: none;
+    border-bottom: 4px solid #75630f;
+    border-radius: 10px;
+}
+
+#myoffers-table {
+    margin: 20px;
+    padding: 14px;
+    font-size: medium;
+    text-align: center;
+    color: black;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#myoffers-table td{
+    padding: 14px 14px;
+    border-bottom: 3px solid #1a1a1a;
+    border-radius: 5px;
+}
+
+#myoffers-table th{
+    text-decoration: none;
+    color: white;
+    background-color: #1A1A1A;
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#myoffers p {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+#myoffers form {
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* vendita */
+
+#search-form-selling{
+    margin: 20px 10px 10px 10px;
+    padding: 20px;
+    background-color: #d6d6d6;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+    border-radius: 10px;
+}
+
+#search-form-selling #categoria {
+    margin-top: 20px;
+    width: 147px;
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+}
+
+#search-form-selling #search-button:hover{
+    background-color: black;
+}
+
+#search-form-selling #search-button:active{
+    background-color: black;
+}
+
+/* ricerca risultati vendita*/
+
+#condizione {
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+}
+
+input[type=number] {
+    border-radius: 5px;
+    border-top: none;
+    border-right: 4px solid #7a7878;
+    border-left: none;
+    border-bottom: 4px solid #7a7878;
+}
+
+/* offerte */
+
+#myorders p {
+    margin: 20px 20px 10px 20px;
+}
+
+#myorders #home-offers-table{
+    width: inherit;
+}
+
+
+
+/* 3d carousel index */
+.gallery {
+    --s: 150px;
+    display: grid;
+    transform-style: preserve-3d;
+    animation: rotate 15s linear infinite;
+    position: relative;
+}
+@keyframes rotate {
+    0% {transform: perspective(450px) rotateX(-100deg) rotate(0deg)}
+    to {transform: perspective(450px) rotateX(-100deg) rotate(-360deg)}
+}
+.gallery > img {
+    grid-area: 1/1;
+    width: var(--s);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(var(--_a)) translateY(120%) rotateX(90deg);
+}
+.gallery > img:nth-child(1) {--_a: 0deg}
+.gallery > img:nth-child(2) {--_a: 60deg}
+.gallery > img:nth-child(3) {--_a: 120deg}
+.gallery > img:nth-child(4) {--_a: 180deg}
+.gallery > img:nth-child(5) {--_a: 240deg}
+.gallery > img:nth-child(6) {--_a: 300deg}
+
+.gallery::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    clip-path: polygon(50% 0,calc(50% + .866*50%) 25%,calc(50% + .866*50%) 75%,50% 100%,calc(50% - .866*50%) 75%,calc(50% - .866*50%) 25%);
+    background: #33555b;
+    transform: translateZ(calc(var(--s)/2)) rotate(90deg);
+}
+
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background: #547980;
+    overflow: hidden;
+}
