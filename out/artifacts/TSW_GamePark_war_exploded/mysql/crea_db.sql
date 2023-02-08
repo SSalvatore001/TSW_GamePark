@@ -7,7 +7,7 @@ USE ecommerce_gamepark;
 CREATE TABLE prodotto (
                           id INT AUTO_INCREMENT PRIMARY KEY,
                           nome VARCHAR(255) NOT NULL,
-                          categoria TEXT NOT NULL,
+                          descrizione TEXT NOT NULL,
                           prezzo DECIMAL(10,2) NOT NULL,
                           immagine VARCHAR(255) NOT NULL,
                           quantità INT NOT NULL

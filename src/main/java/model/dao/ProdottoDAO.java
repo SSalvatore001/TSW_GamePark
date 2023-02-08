@@ -13,10 +13,10 @@ public class ProdottoDAO {
     public void addProdotto(Prodotto prodotto) {
         try(Connection con = ConPool.getConnection()){
             PreparedStatement preparedStatement = con
-                    .prepareStatement("insert into prodotto(nome,descrizione,prezzo,quantità) values (?, ?, ?, ?)");
+                    .prepareStatement("insert into prodotto(nome,categoria,prezzo,quantità) values (?, ?, ?, ?)");
             // Parameters start with 1
             preparedStatement.setString(1, prodotto.getNome());
-            preparedStatement.setString(2, prodotto.getDescrizione());
+            preparedStatement.setString(2, prodotto.getCategoria());
             preparedStatement.setDouble(3, prodotto.getPrezzo());
             preparedStatement.setInt(4, prodotto.getQuantità());
             preparedStatement.executeUpdate();
@@ -42,11 +42,11 @@ public class ProdottoDAO {
     public void updateProdotto(Prodotto prodotto) {
         try(Connection con = ConPool.getConnection()){
             PreparedStatement preparedStatement = con
-                    .prepareStatement("update prodotto set nome=?, descrizione=?, prezzo=?, quantità=?" +
+                    .prepareStatement("update prodotto set nome=?, categoria=?, prezzo=?, quantità=?" +
                             "where id=?");
             // Parameters start with 1
             preparedStatement.setString(1, prodotto.getNome());
-            preparedStatement.setString(2, prodotto.getDescrizione());
+            preparedStatement.setString(2, prodotto.getCategoria());
             preparedStatement.setDouble(3, prodotto.getPrezzo());
             preparedStatement.setInt(4, prodotto.getQuantità());
             preparedStatement.setInt(5, prodotto.getId());
@@ -68,7 +68,7 @@ public class ProdottoDAO {
                 Prodotto prodotto = new Prodotto();
                 prodotto.setId(rs.getInt("id"));
                 prodotto.setNome(rs.getString("nome"));
-                prodotto.setDescrizione(rs.getString("descrizione"));
+                prodotto.setCategoria(rs.getString("categoria"));
                 prodotto.setPrezzo(rs.getDouble("prezzo"));
                 prodotto.setQuantità(rs.getInt("quantità"));
                 prodotti.add(prodotto);
@@ -89,7 +89,7 @@ public class ProdottoDAO {
             if (rs.next()) {
                 prodotto.setId(rs.getInt("id"));
                 prodotto.setNome(rs.getString("nome"));
-                prodotto.setDescrizione(rs.getString("descrizione"));
+                prodotto.setCategoria(rs.getString("categoria"));
                 prodotto.setPrezzo(rs.getDouble("prezzo"));
                 prodotto.setQuantità(rs.getInt("quantità"));
             }
@@ -101,4 +101,3 @@ public class ProdottoDAO {
     }
 
 }
-

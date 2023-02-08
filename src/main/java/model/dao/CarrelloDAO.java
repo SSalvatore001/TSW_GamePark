@@ -4,11 +4,6 @@ import model.*;
 import java.sql.*;
 import java.util.*;
 
-/**
- * La classe permette le operazioni riguardanti gli oggetti Carrello
- * in relazione al DBMS MySQL
- * @author Salvatore
- */
 public class CarrelloDAO {
     private static final String INSERT_CARRELLO_QUERY = "INSERT INTO Carrello (idutente,totale) VALUES (?, ?)";
     private static final String SELECT_CARRELLO_BY_ID_QUERY = "SELECT * FROM Carrello WHERE id = ?";
